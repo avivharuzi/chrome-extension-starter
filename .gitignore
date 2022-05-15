@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 .angular
+
+extension/pages
+extension/scripts
