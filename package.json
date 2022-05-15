@@ -5,7 +5,11 @@
     "cz": "git-cz",
     "prepare": "husky install",
     "postinstall": "ngcc --properties es2015 browser module main",
-    "affected:lint": "nx affected:lint"
+    "affected:lint": "nx affected:lint",
+    "start:dev": "nx run-many --target=build --all --configuration development --watch",
+    "start:prod": "nx run-many --target=build --all --configuration production --watch",
+    "build:dev": "nx run-many --target=build --all --configuration development",
+    "build:prod": "nx run-many --target=build --all --configuration production"
   },
   "private": true,
   "dependencies": {
