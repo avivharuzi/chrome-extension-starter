@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/popup",
+  "sourceRoot": "apps/popup/src",
+  "prefix": "popup",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/popup",
+        "index": "apps/popup/src/index.html",
+        "main": "apps/popup/src/main.ts",
+        "polyfills": "apps/popup/src/polyfills.ts",
+        "tsConfig": "apps/popup/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/popup/src/favicon.ico", "apps/popup/src/assets"],
+        "styles": ["apps/popup/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/popup/src/environments/environment.ts",
+              "with": "apps/popup/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "popup:build:production"
+        },
+        "development": {
+          "browserTarget": "popup:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "popup:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/popup/src/**/*.ts",
+          "apps/popup/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/popup"],
+      "options": {
+        "jestConfig": "apps/popup/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:app"]
+}
