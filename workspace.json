@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "devtools-panel": "apps/devtools-panel",
     "options": "apps/options",
     "popup": "apps/popup"
   }

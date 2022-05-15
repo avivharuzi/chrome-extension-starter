@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/devtools-panel",
+  "sourceRoot": "apps/devtools-panel/src",
+  "prefix": "devtools-panel",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/devtools-panel",
+        "index": "apps/devtools-panel/src/index.html",
+        "main": "apps/devtools-panel/src/main.ts",
+        "polyfills": "apps/devtools-panel/src/polyfills.ts",
+        "tsConfig": "apps/devtools-panel/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/devtools-panel/src/favicon.ico",
+          "apps/devtools-panel/src/assets"
+        ],
+        "styles": ["apps/devtools-panel/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/devtools-panel/src/environments/environment.ts",
+              "with": "apps/devtools-panel/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "devtools-panel:build:production"
+        },
+        "development": {
+          "browserTarget": "devtools-panel:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "devtools-panel:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/devtools-panel/src/**/*.ts",
+          "apps/devtools-panel/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/devtools-panel"],
+      "options": {
+        "jestConfig": "apps/devtools-panel/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:app"]
+}
