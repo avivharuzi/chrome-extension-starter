@@ -1,4 +1,3 @@
 {
-  "*.{css,scss,sass}": "stylelint --aei --fix",
   ".": "prettier --write"
 }
