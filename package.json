@@ -1,0 +1,29 @@
+{
+  "name": "chrome-extension-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "cz": "git-cz",
+    "prepare": "husky install",
+    "affected:lint": "nx affected:lint"
+  },
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@nrwl/cli": "13.3.8",
+    "@nrwl/tao": "13.3.8",
+    "@nrwl/workspace": "13.3.8",
+    "@types/node": "14.14.33",
+    "commitizen": "^4.2.4",
+    "git-cz": "^4.8.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.3.1",
+    "typescript": "~4.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
+  }
+}
