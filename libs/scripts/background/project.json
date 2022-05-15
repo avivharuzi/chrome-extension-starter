@@ -1,0 +1,33 @@
+{
+  "root": "libs/scripts/background",
+  "sourceRoot": "libs/scripts/background/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "extension/scripts/background",
+        "main": "libs/scripts/background/src/index.ts",
+        "tsConfig": "libs/scripts/background/tsconfig.lib.json",
+        "assets": ["libs/scripts/background/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/scripts/background/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/scripts/background"],
+      "options": {
+        "jestConfig": "libs/scripts/background/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:scripts", "type:script"]
+}

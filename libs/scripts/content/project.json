@@ -1,0 +1,33 @@
+{
+  "root": "libs/scripts/content",
+  "sourceRoot": "libs/scripts/content/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "extension/scripts/content",
+        "main": "libs/scripts/content/src/index.ts",
+        "tsConfig": "libs/scripts/content/tsconfig.lib.json",
+        "assets": ["libs/scripts/content/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/scripts/content/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/scripts/content"],
+      "options": {
+        "jestConfig": "libs/scripts/content/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:scripts", "type:script"]
+}

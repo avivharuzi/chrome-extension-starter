@@ -35,6 +35,7 @@
     "@nrwl/cli": "13.3.8",
     "@nrwl/eslint-plugin-nx": "13.3.8",
     "@nrwl/jest": "13.3.8",
+    "@nrwl/js": "13.3.8",
     "@nrwl/linter": "13.3.8",
     "@nrwl/tao": "13.3.8",
     "@nrwl/workspace": "13.3.8",

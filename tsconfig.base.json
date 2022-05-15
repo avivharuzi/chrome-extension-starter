@@ -26,7 +26,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {}
+    "paths": {
+      "@chrome-extension-starter/scripts/background": [
+        "libs/scripts/background/src/index.ts"
+      ],
+      "@chrome-extension-starter/scripts/content": [
+        "libs/scripts/content/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
