@@ -6,12 +6,12 @@ Chrome Extension starter using Nx workspace and Angular.
 
 ## Table of Contents
 
-1. [Prerequisites](#prerequisites)
-2. [Features](#features)
-3. [Get Started](#get-started)
-4. [Project Structure](#project-structure)
-5. [Commands](#commands)
-6. [Release](#release)
+- [Prerequisites](#prerequisites)
+- [Features](#features)
+- [Get Started](#get-started)
+- [Project Structure](#project-structure)
+- [Commands](#commands)
+- [Release](#release)
 
 ## Prerequisites
 
