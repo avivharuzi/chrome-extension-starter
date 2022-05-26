@@ -43,6 +43,17 @@
     "@nrwl/angular:component": {
       "style": "scss",
       "changeDetection": "OnPush"
+    },
+    "@nrwl/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "none",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/web:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "none"
     }
   },
   "defaultProject": "popup"

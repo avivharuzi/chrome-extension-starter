@@ -1,0 +1,62 @@
+{
+  "projectType": "application",
+  "root": "apps/scripts/content",
+  "sourceRoot": "apps/scripts/content/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/scripts/content",
+        "compiler": "babel",
+        "index": "apps/scripts/content/src/index.html",
+        "baseHref": "/",
+        "main": "apps/scripts/content/src/main.ts",
+        "polyfills": "apps/scripts/content/src/polyfills.ts",
+        "tsConfig": "apps/scripts/content/tsconfig.app.json",
+        "assets": [
+          "apps/scripts/content/src/favicon.ico",
+          "apps/scripts/content/src/assets"
+        ],
+        "styles": ["apps/scripts/content/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/scripts/content/src/environments/environment.ts",
+              "with": "apps/scripts/content/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "scripts-content:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "scripts-content:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/scripts/content/**/*.ts"]
+      }
+    }
+  }
+}

@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "0.13.7",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -42,6 +44,7 @@
     "@nrwl/js": "13.3.8",
     "@nrwl/linter": "13.3.8",
     "@nrwl/tao": "13.3.8",
+    "@nrwl/web": "13.3.8",
     "@nrwl/workspace": "13.3.8",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/chrome": "^0.0.186",

@@ -5,12 +5,12 @@
   "manifest_version": 3,
   "homepage_url": "https://github.com/avivharuzi/chrome-extension-starter",
   "background": {
-    "service_worker": "scripts/background/src/index.js"
+    "service_worker": "scripts/background/main.esm.js"
   },
   "content_scripts": [
     {
       "all_frames": false,
-      "js": ["scripts/content/src/index.js"],
+      "js": ["scripts/content/main.esm.js"],
       "matches": ["<all_urls>"],
       "run_at": "document_start"
     }

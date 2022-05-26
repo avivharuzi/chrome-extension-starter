@@ -4,7 +4,7 @@
     "devtools-panel": "apps/devtools-panel",
     "options": "apps/options",
     "popup": "apps/popup",
-    "scripts-background": "libs/scripts/background",
-    "scripts-content": "libs/scripts/content"
+    "scripts-background": "apps/scripts/background",
+    "scripts-content": "apps/scripts/content"
   }
 }
