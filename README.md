@@ -4,22 +4,17 @@
 
 Chrome Extension starter using Nx workspace and Angular.
 
-## Table of Contents
+## 📖 Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Features](#features)
-- [Get Started](#get-started)
-- [Project Structure](#project-structure)
-- [Commands](#commands)
-- [Release](#release)
+- [Features](#✨-Features)
+- [Prerequisites](#🎯-Prerequisites)
+- [Getting Started](#🚀-Getting-Started)
+- [Project Structure](#🏗-Project-Structure)
+- [Commands](#🕹-Commands)
+- [Release](#📦-Release)
+- [License](#📜-License)
 
-## Prerequisites
-
-- [Node.js](https://nodejs.org) (>= 16 required)
-- npm package manager (>= 8 required)
-- [Chrome](https://www.google.com/chrome)
-
-## Features
+## ✨ Features
 
 ✅ Nx Workspace
 
@@ -47,7 +42,13 @@ Chrome Extension starter using Nx workspace and Angular.
 
 ✅ Content Script
 
-## Get Started
+## 🎯 Prerequisites
+
+- [Node.js](https://nodejs.org) (>= 16 required)
+- npm package manager (>= 8 required)
+- [Chrome](https://www.google.com/chrome)
+
+## 🚀 Getting Started
 
 1. Install dependencies
 
@@ -71,7 +72,7 @@ npm run start:dev
 
 > ℹ️ More info about developing Chrome extension can be found [here](https://developer.chrome.com/docs/extensions/mv3)
 
-## Project Structure
+## 🏗 Project Structure
 
 So the purpose is to take the advantage of the type system of TypeScript and to use the power of Nx workspace to create multiple applications with the powerful framework Angular!
 
@@ -81,13 +82,13 @@ So we have 3 applications:
 2. Options (`apps/options`) - used for the options page
 3. DevTools Panel (`apps/devtools-panel`) - used for the devtools panel
 
-In every Chrome extension we have background script that communicate with the content scripts, which can be found in `libs/scripts/background/src/index.ts`.
+In every Chrome extension we have background script that communicate with the content scripts, which can be found in `apps/scripts/background/src/main.ts`.
 
-We are also injection content script which can be found in `libs/scripts/content/src/index.ts`.
+We are also can inject content script which can be found in `apps/scripts/content/src/main.ts`.
 
-All the applications and libs have already the Chrome types so can just `chrome` and the editor will recognize it.
+All the applications have already the Chrome types so can just use `chrome` and the editor will recognize it.
 
-## Commands
+## 🕹 Commands
 
 Start with development configuration
 
@@ -113,7 +114,7 @@ Build with production configuration.
 npm run build:prod
 ```
 
-## Release
+## 📦 Release
 
 I recommend making the release automatic with GitHub actions or other ci service.
 
@@ -123,6 +124,6 @@ I recommend making the release automatic with GitHub actions or other ci service
 - Create zip file from the extension directory
 - Upload the zip to the Chrome developer dashboard
 
-# License
+## 📜 License
 
 [MIT](LICENSE)
