@@ -1,6 +1,7 @@
 {
+  "name": "options",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/options",
   "sourceRoot": "apps/options/src",
   "prefix": "options",
   "targets": {
@@ -70,7 +71,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/options/src/**/*.ts",
@@ -79,10 +80,10 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/options"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/options"],
       "options": {
-        "jestConfig": "apps/options/jest.config.js",
+        "jestConfig": "apps/options/jest.config.ts",
         "passWithNoTests": true
       }
     }
