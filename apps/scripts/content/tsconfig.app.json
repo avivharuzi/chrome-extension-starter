@@ -4,6 +4,6 @@
     "outDir": "../../../dist/out-tsc",
     "types": ["@types/chrome"]
   },
-  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
-  "include": ["**/*.ts"]
+  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
+  "include": ["src/**/*.ts"]
 }

@@ -1,8 +1,9 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "popup",
   "projectType": "application",
-  "root": "apps/popup",
-  "sourceRoot": "apps/popup/src",
   "prefix": "popup",
+  "sourceRoot": "apps/popup/src",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -11,7 +12,7 @@
         "outputPath": "extension/pages/popup",
         "index": "apps/popup/src/index.html",
         "main": "apps/popup/src/main.ts",
-        "polyfills": "apps/popup/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/popup/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/popup/src/favicon.ico", "apps/popup/src/assets"],
@@ -30,12 +31,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/popup/src/environments/environment.ts",
-              "with": "apps/popup/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "none"
@@ -70,20 +65,24 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/popup/src/**/*.ts",
-          "apps/popup/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/popup/**/*.ts", "apps/popup/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/popup"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/popup/jest.config.js",
+        "jestConfig": "apps/popup/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   },

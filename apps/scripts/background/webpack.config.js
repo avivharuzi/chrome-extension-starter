@@ -1,5 +1,10 @@
-module.exports = (baseConfig) => {
-  baseConfig.optimization.runtimeChunk = false;
+const { composePlugins, withNx } = require('@nx/webpack');
 
-  return baseConfig;
-};
+// Nx plugins for webpack.
+module.exports = composePlugins(withNx(), (config) => {
+  // Update the webpack config as needed here.
+  // e.g. `config.plugins.push(new MyPlugin())`
+  config.optimization.runtimeChunk = false;
+
+  return config;
+});

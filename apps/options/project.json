@@ -1,8 +1,9 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "options",
   "projectType": "application",
-  "root": "apps/options",
-  "sourceRoot": "apps/options/src",
   "prefix": "options",
+  "sourceRoot": "apps/options/src",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -11,7 +12,7 @@
         "outputPath": "extension/pages/options",
         "index": "apps/options/src/index.html",
         "main": "apps/options/src/main.ts",
-        "polyfills": "apps/options/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/options/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/options/src/favicon.ico", "apps/options/src/assets"],
@@ -30,12 +31,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/options/src/environments/environment.ts",
-              "with": "apps/options/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "none"
@@ -70,20 +65,24 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/options/src/**/*.ts",
-          "apps/options/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/options/**/*.ts", "apps/options/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/options"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/options/jest.config.js",
+        "jestConfig": "apps/options/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   },

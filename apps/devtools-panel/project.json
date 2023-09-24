@@ -1,8 +1,9 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "devtools-panel",
   "projectType": "application",
-  "root": "apps/devtools-panel",
-  "sourceRoot": "apps/devtools-panel/src",
   "prefix": "devtools-panel",
+  "sourceRoot": "apps/devtools-panel/src",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -11,7 +12,7 @@
         "outputPath": "extension/pages/devtools-panel",
         "index": "apps/devtools-panel/src/index.html",
         "main": "apps/devtools-panel/src/main.ts",
-        "polyfills": "apps/devtools-panel/src/polyfills.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/devtools-panel/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -33,12 +34,6 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/devtools-panel/src/environments/environment.ts",
-              "with": "apps/devtools-panel/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "none"
@@ -73,20 +68,27 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/devtools-panel/src/**/*.ts",
-          "apps/devtools-panel/src/**/*.html"
+          "apps/devtools-panel/**/*.ts",
+          "apps/devtools-panel/**/*.html"
         ]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/devtools-panel"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/devtools-panel/jest.config.js",
+        "jestConfig": "apps/devtools-panel/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   },

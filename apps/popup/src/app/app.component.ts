@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'popup-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
