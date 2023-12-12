@@ -9,15 +9,16 @@
   },
   "content_scripts": [
     {
-      "all_frames": false,
+      "all_frames": true,
       "js": ["scripts/content/main.js"],
-      "matches": ["<all_urls>"],
-      "run_at": "document_start"
+      "matches": [
+        "https://developer.chrome.com/docs/extensions/*",
+        "https://developer.chrome.com/docs/webstore/*"
+      ]
     }
   ],
   "action": {
-    "default_icon": "images/icon-128x128.png",
-    "default_popup": "pages/popup/index.html"
+    "default_icon": "images/icon-128x128.png"
   },
   "icons": {
     "16": "images/icon-16x16.png",
@@ -25,8 +26,16 @@
     "48": "images/icon-48x48.png",
     "128": "images/icon-128x128.png"
   },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "Command+B"
+      }
+    }
+  },
   "devtools_page": "devtools.html",
   "options_page": "pages/options/index.html",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"]
 }
