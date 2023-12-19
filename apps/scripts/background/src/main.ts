@@ -1,10 +1,21 @@
 console.log('chrome-extension-starter - scripts-background');
 
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the extension");
+        if (request.greeting === "hello")
+            sendResponse({ farewell: "goodbye" });
+    }
+);
+
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.action.setBadgeText({
-      text: "OFF",
+        text: "OFF",
     });
-  });
+});
 
 const extensions = 'https://developer.chrome.com/docs/extensions'
 const webstore = 'https://developer.chrome.com/docs/webstore'

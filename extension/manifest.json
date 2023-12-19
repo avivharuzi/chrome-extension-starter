@@ -10,17 +10,23 @@
   "content_scripts": [
     {
       "all_frames": true,
-      "js": ["scripts/content/main.js"],
+      "js": [
+        "scripts/content/main.js"
+      ],
       "matches": [
         "https://web-pg.web.app/*"
-      ]
+      ],
+      "run_at": "document_start"
     },
     {
       "all_frames": true,
-      "js": ["scripts/wagora/main.js"],
+      "js": [
+        "scripts/wagora/main.js"
+      ],
       "matches": [
         "https://g.gxwagora.jp/*"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "action": {
@@ -42,6 +48,18 @@
   },
   "devtools_page": "devtools.html",
   "options_page": "pages/options/index.html",
-  "permissions": ["tabs", "activeTab", "scripting"],
-  "host_permissions": ["<all_urls>"]
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://web-pg.web.app/*",
+      "https://g.gxwagora.jp/*"
+    ]
+  }
 }
