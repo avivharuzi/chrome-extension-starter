@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "scripts-wagora",
+  "projectType": "application",
+  "sourceRoot": "apps/scripts/wagora/src",
+  "tags": ["type:script"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "extension/scripts/wagora",
+        "compiler": "babel",
+        "index": "",
+        "main": "apps/scripts/wagora/src/main.ts",
+        "tsConfig": "apps/scripts/wagora/tsconfig.app.json",
+        "generateIndexHtml": false,
+        "webpackConfig": "apps/scripts/wagora/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "none",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": false,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "scripts-wagora:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "scripts-wagora:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/scripts/wagora/**/*.ts"]
+      }
+    }
+  }
+}

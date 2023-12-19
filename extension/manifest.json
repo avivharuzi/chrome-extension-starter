@@ -12,8 +12,14 @@
       "all_frames": true,
       "js": ["scripts/content/main.js"],
       "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
+        "https://web-pg.web.app/*"
+      ]
+    },
+    {
+      "all_frames": true,
+      "js": ["scripts/wagora/main.js"],
+      "matches": [
+        "https://g.gxwagora.jp/*"
       ]
     }
   ],
