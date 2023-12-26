@@ -14,7 +14,7 @@
         "scripts/content/main.js"
       ],
       "matches": [
-        "https://web-pg.web.app/*"
+        "https://web-pg.web.app/attendance/*"
       ],
       "run_at": "document_start"
     },

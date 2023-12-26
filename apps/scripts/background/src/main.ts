@@ -5,14 +5,15 @@ chrome.runtime.onMessage.addListener(
         console.log(sender.tab ?
             "from a content script:" + sender.tab.url :
             "from the extension");
-        console.log(request);
+        console.log(request.date);
         fetch('https://g.gxwagora.jp/graphql', {
             method: 'POST',
             body: JSON.stringify({
-                "query": "query getTeamByKey($teamKey: ID!) {\n  team(key: $teamKey) {\n    team {\n      id\n      key\n      name\n      iconUrl\n      teamGoal\n      __typename\n    }\n    role\n    __typename\n  }\n}\n",
-                "operationName": "getTeamByKey",
+                "query": "query getMyAttendanceInformation($from: Date!, $to: Date!) {\n  myAttendanceInformation(from: $from, to: $to) {\n    averageWorkTimeHours\n    userAttendanceInformation {\n      date\n      attendanceTime {\n        begin\n        leaving\n        __typename\n      }\n      signTime {\n        begin\n        leaving\n        signType\n        __typename\n      }\n      retrospectiveComment\n      __typename\n    }\n    __typename\n  }\n}\n",
+                // "operationName": "getTeamByKey",
                 "variables": {
-                    "teamKey": "newgrd2023"
+                    from: request.date,
+                    to: request.date
                 }
             }),
         }).then(res => {
