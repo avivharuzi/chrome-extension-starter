@@ -1,6 +1,6 @@
 {
-  "name": "Chrome Extension Starter",
-  "description": "Chrome Extension Starter",
+  "name": "WebPG-Extension",
+  "description": "Web版PGの拡張機能です。",
   "version": "1.0.0",
   "manifest_version": 3,
   "homepage_url": "https://github.com/avivharuzi/chrome-extension-starter",

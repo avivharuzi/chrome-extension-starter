@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener(
                 console.log(json);
                 sendResponse(json);
             }));
-        });
+        }).catch(err => { console.log(err); });
         return true;
     }
 );
