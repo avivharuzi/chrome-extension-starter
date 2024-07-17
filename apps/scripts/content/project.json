@@ -1,6 +1,6 @@
 {
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "name": "scripts-content",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/scripts/content/src",
   "tags": ["type:script"],
@@ -41,11 +41,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/scripts/content/**/*.ts"]
-      }
+      "executor": "@nx/eslint:lint"
     }
   }
 }

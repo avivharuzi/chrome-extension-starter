@@ -1,9 +1,10 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "devtools-panel",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "devtools-panel",
   "sourceRoot": "apps/devtools-panel/src",
+  "tags": ["type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -53,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "devtools-panel:build:production"
+          "buildTarget": "devtools-panel:build:production"
         },
         "development": {
-          "browserTarget": "devtools-panel:build:development"
+          "buildTarget": "devtools-panel:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,33 +65,18 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "devtools-panel:build"
+        "buildTarget": "devtools-panel:build"
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "apps/devtools-panel/**/*.ts",
-          "apps/devtools-panel/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/devtools-panel/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/devtools-panel/jest.config.ts"
       }
     }
-  },
-  "tags": ["type:app"]
+  }
 }

@@ -42,3 +42,6 @@ Thumbs.db
 
 extension/pages
 extension/scripts
+
+.nx/cache
+.nx/workspace-data
